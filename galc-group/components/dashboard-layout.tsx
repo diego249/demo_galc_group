@@ -14,7 +14,6 @@ import {
   Menu,
   PieChart,
   Plus,
-  Settings,
   Users,
 } from "lucide-react"
 
@@ -41,7 +40,6 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
     { href: "/dashboard/clients", label: "Clients", icon: Users },
     { href: "/dashboard/reports", label: "Reports", icon: FileText },
     { href: "/dashboard/analytics", label: "Analytics", icon: PieChart },
-    { href: "/dashboard/settings", label: "Settings", icon: Settings },
   ]
 
   return (
