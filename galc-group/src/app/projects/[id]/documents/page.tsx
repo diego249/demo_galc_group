@@ -1,20 +1,21 @@
 import Link from "next/link"
 import { notFound } from "next/navigation"
-import { ArrowLeft, FileText, Upload } from 'lucide-react'
+import { ArrowLeft, FileText, Upload, MoreVertical } from "lucide-react"
 
 import { getProjectById } from "@/data/projects"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { use } from "react";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import { use } from "react"
 
-export default function DocumentsPage({ params }: {params: Promise<{ id: string }>}) {
+export default function DocumentsPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params)
   const project = getProjectById(id)
-  
+
   if (!project) {
     notFound()
   }
-  
+
   // Documentos de ejemplo
   const documents = [
     {
@@ -50,65 +51,88 @@ export default function DocumentsPage({ params }: {params: Promise<{ id: string 
       size: 3200000,
     },
   ]
-  
+
   function formatFileSize(bytes: number): string {
-    if (bytes < 1024) return bytes + ' bytes';
-    else if (bytes < 1048576) return (bytes / 1024).toFixed(1) + ' KB';
-    else return (bytes / 1048576).toFixed(1) + ' MB';
+    if (bytes < 1024) return bytes + " bytes"
+    else if (bytes < 1048576) return (bytes / 1024).toFixed(1) + " KB"
+    else return (bytes / 1048576).toFixed(1) + " MB"
   }
-  
+
   return (
-    <div className="space-y-8">
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-2">
+    <div className="container mx-auto px-4 py-8 max-w-6xl">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 gap-4">
+        <div className="flex items-center gap-4">
           <Link href={`/projects/${id}`}>
-            <Button variant="outline" size="icon" className="h-8 w-8">
+            <Button variant="outline" size="icon" className="h-10 w-10">
               <ArrowLeft className="h-4 w-4" />
               <span className="sr-only">Volver</span>
             </Button>
           </Link>
-          <h1 className="text-3xl font-bold tracking-tight">Documentos</h1>
-          <div className="ml-2 text-muted-foreground">{project.name}</div>
+          <div>
+            <h1 className="text-2xl font-bold tracking-tight">Documentos</h1>
+            <p className="text-muted-foreground mt-1">{project.name}</p>
+          </div>
         </div>
         <Button>
           <Upload className="mr-2 h-4 w-4" />
           Subir Documento
         </Button>
       </div>
-      
+
       <Card>
         <CardHeader>
           <CardTitle>Documentos del Proyecto</CardTitle>
-          <CardDescription>
-            Archivos y documentación relacionada con el proyecto
-          </CardDescription>
+          <CardDescription>Archivos y documentación relacionada con el proyecto</CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="rounded-md border">
-            <div className="grid grid-cols-12 p-4 text-sm font-medium text-muted-foreground border-b">
-              <div className="col-span-6">Nombre</div>
-              <div className="col-span-2">Tipo</div>
-              <div className="col-span-2">Tamaño</div>
-              <div className="col-span-2">Fecha</div>
-            </div>
-            {documents.map((doc) => (
-              <div key={doc.id} className="grid grid-cols-12 p-4 text-sm border-b last:border-0 hover:bg-muted/50">
-                <div className="col-span-6 font-medium flex items-center">
-                  <FileText className="mr-2 h-4 w-4 text-muted-foreground" />
-                  <Link href={doc.url} className="hover:underline">
-                    {doc.name}
-                  </Link>
-                </div>
-                <div className="col-span-2">{doc.type}</div>
-                <div className="col-span-2">{formatFileSize(doc.size)}</div>
-                <div className="col-span-2">
-                  {new Date(doc.uploadDate).toLocaleDateString('es-ES')}
-                </div>
-              </div>
-            ))}
+          <div className="overflow-x-auto">
+            <table className="w-full">
+              <thead>
+                <tr className="text-left text-sm font-medium text-muted-foreground">
+                  <th className="p-4">Nombre</th>
+                  <th className="p-4">Tipo</th>
+                  <th className="p-4">Tamaño</th>
+                  <th className="p-4">Fecha</th>
+                  <th className="p-4 sr-only">Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                {documents.map((doc) => (
+                  <tr key={doc.id} className="border-t hover:bg-muted/50 transition-colors">
+                    <td className="p-4">
+                      <div className="flex items-center">
+                        <FileText className="mr-2 h-4 w-4 text-muted-foreground flex-shrink-0" />
+                        <Link href={doc.url} className="hover:underline font-medium">
+                          {doc.name}
+                        </Link>
+                      </div>
+                    </td>
+                    <td className="p-4">{doc.type}</td>
+                    <td className="p-4">{formatFileSize(doc.size)}</td>
+                    <td className="p-4">{new Date(doc.uploadDate).toLocaleDateString("es-ES")}</td>
+                    <td className="p-4">
+                      <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                          <Button variant="ghost" size="icon">
+                            <MoreVertical className="h-4 w-4" />
+                            <span className="sr-only">Abrir menú</span>
+                          </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent align="end">
+                          <DropdownMenuItem>Descargar</DropdownMenuItem>
+                          <DropdownMenuItem>Renombrar</DropdownMenuItem>
+                          <DropdownMenuItem>Eliminar</DropdownMenuItem>
+                        </DropdownMenuContent>
+                      </DropdownMenu>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </CardContent>
       </Card>
     </div>
   )
 }
+
