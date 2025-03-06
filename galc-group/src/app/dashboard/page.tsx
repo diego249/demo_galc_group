@@ -13,7 +13,7 @@ import { Progress } from "@/components/ui/progress"
 
 export default function DashboardPage() {
   const stats = getDashboardStats()
-  const [timeframe, setTimeframe] = useState("all")
+  const [timeframe] = useState("all")
 
   return (
     <div className="container mx-auto px-4 py-6 space-y-8 max-w-7xl">
@@ -218,7 +218,7 @@ export default function DashboardPage() {
             </CardHeader>
             <CardContent>
               <p className="text-sm text-muted-foreground">
-                Selecciona la pestaña "Resumen" para ver las estadísticas de proyectos.
+                Selecciona la pestaña Resumen para ver las estadísticas de proyectos.
               </p>
             </CardContent>
           </Card>
@@ -232,7 +232,7 @@ export default function DashboardPage() {
             </CardHeader>
             <CardContent>
               <p className="text-sm text-muted-foreground">
-                Selecciona la pestaña "Resumen" para ver las estadísticas de proyectos.
+                Selecciona la pestaña Resumen para ver las estadísticas de proyectos.
               </p>
             </CardContent>
           </Card>
