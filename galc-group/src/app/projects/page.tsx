@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { PlusCircle } from "lucide-react"
+import { PlusCircle, ArrowLeft } from "lucide-react"
 
 import { projects } from "@/data/projects"
 import { formatCurrency, formatDate, getStatusColor } from "@/lib/utils"
@@ -11,7 +11,15 @@ export default function ProjectsPage() {
   return (
     <div className="container mx-auto px-4 py-8 max-w-7xl">
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 gap-4">
-        <h1 className="text-3xl font-bold tracking-tight">Proyectos</h1>
+        <div className="flex items-center gap-4">
+          <Link href="/dashboard">
+            <Button variant="outline" size="icon" className="h-10 w-10">
+              <ArrowLeft className="h-4 w-4" />
+              <span className="sr-only">Volver al Dashboard</span>
+            </Button>
+          </Link>
+          <h1 className="text-3xl font-bold tracking-tight">Proyectos</h1>
+        </div>
         <Link href="/projects/new">
           <Button>
             <PlusCircle className="mr-2 h-4 w-4" />
@@ -72,4 +80,3 @@ export default function ProjectsPage() {
     </div>
   )
 }
-

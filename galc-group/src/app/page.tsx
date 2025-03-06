@@ -13,10 +13,7 @@ export default function Home() {
             <span>GALC Group</span>
           </div>
           <nav className="hidden md:flex gap-6">
-            <Link href="#servicios" className="text-sm font-medium hover:underline">
-              Servicios
-            </Link>
-            <Link href="#proyectos" className="text-sm font-medium hover:underline">
+            <Link href="projects" className="text-sm font-medium hover:underline">
               Proyectos
             </Link>
             <Link href="#contacto" className="text-sm font-medium hover:underline">

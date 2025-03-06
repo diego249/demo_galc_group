@@ -22,10 +22,9 @@ export default function DashboardPage() {
           <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">Dashboard</h1>
           <p className="text-muted-foreground mt-1">Resumen de proyectos y estadísticas</p>
         </div>
-        <Link href="/projects/new">
+        <Link href="/projects">
           <Button className="w-full sm:w-auto transition-all hover:shadow-md">
-            <PlusCircle className="mr-2 h-4 w-4" />
-            Nuevo Proyecto
+            Proyectos
           </Button>
         </Link>
       </div>
