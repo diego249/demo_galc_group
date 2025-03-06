@@ -6,15 +6,11 @@ import { getProjectById } from "@/data/projects"
 import { formatCurrency, formatDate, getStatusColor } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { use } from "react";
 
-interface ProjectPageProps {
-  params: {
-    id: string
-  }
-}
-
-export default function ProjectPage({ params }: ProjectPageProps) {
-  const project = getProjectById(params.id)
+export default function ProjectPage({ params }: {params: Promise<{ id: string }>}) {
+  const { id } = use(params)
+  const project = getProjectById(id)
   
   if (!project) {
     notFound()

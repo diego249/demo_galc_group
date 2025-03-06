@@ -5,15 +5,11 @@ import { ArrowLeft, FileText, Upload } from 'lucide-react'
 import { getProjectById } from "@/data/projects"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { use } from "react";
 
-interface DocumentsPageProps {
-  params: {
-    id: string
-  }
-}
-
-export default function DocumentsPage({ params }: DocumentsPageProps) {
-  const project = getProjectById(params.id)
+export default function DocumentsPage({ params }: {params: Promise<{ id: string }>}) {
+  const { id } = use(params)
+  const project = getProjectById(id)
   
   if (!project) {
     notFound()
@@ -65,7 +61,7 @@ export default function DocumentsPage({ params }: DocumentsPageProps) {
     <div className="space-y-8">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <Link href={`/projects/${params.id}`}>
+          <Link href={`/projects/${id}`}>
             <Button variant="outline" size="icon" className="h-8 w-8">
               <ArrowLeft className="h-4 w-4" />
               <span className="sr-only">Volver</span>
