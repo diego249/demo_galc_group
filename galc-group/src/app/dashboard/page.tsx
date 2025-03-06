@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { Building2, CheckCircle, Clock, PlusCircle, ChevronDown } from "lucide-react"
+import { Building2, CheckCircle, Clock, ChevronDown } from "lucide-react"
 
 import { getDashboardStats } from "@/data/projects"
 import { formatCurrency } from "@/lib/utils"
