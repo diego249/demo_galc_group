@@ -4,69 +4,69 @@ import type { Project } from "@/lib/types"
 export const projects: Project[] = [
   {
     id: "1",
-    name: "Edificio Residencial Aurora",
-    description: "Complejo residencial de 5 pisos con 20 apartamentos de lujo",
+    name: "Aurora Residential Building",
+    description: "5-story residential complex with 20 luxury apartments",
     squareMeters: 3500,
-    type: "Residencial",
-    status: "En progreso",
+    type: "Residential",
+    status: "In progress",
     startDate: "2023-06-15",
     budget: 2500000,
-    location: "Av. Principal 123, Ciudad",
-    client: "Inversiones Aurora S.A.",
-    progress: 65,
-  },
-  {
+    location: "123 Main Avenue, City",
+    client: "Aurora Investments S.A.",
+    progress: 65
+},
+{
     id: "2",
-    name: "Centro Comercial Meridiano",
-    description: "Centro comercial con 45 locales y área de restaurantes",
+    name: "Meridiano Shopping Center",
+    description: "Shopping center with 45 stores and a restaurant area",
     squareMeters: 12000,
-    type: "Comercial",
-    status: "En planificación",
+    type: "Commercial",
+    status: "In planning",
     startDate: "2023-11-01",
     budget: 8500000,
-    location: "Carretera Norte Km 5, Ciudad",
-    client: "Grupo Comercial Meridiano",
-    progress: 15,
-  },
-  {
+    location: "North Highway Km 5, City",
+    client: "Meridiano Commercial Group",
+    progress: 15
+},
+{
     id: "3",
-    name: "Planta Industrial Tecnova",
-    description: "Planta de producción con oficinas administrativas",
+    name: "Tecnova Industrial Plant",
+    description: "Production plant with administrative offices",
     squareMeters: 7500,
     type: "Industrial",
-    status: "Completado",
+    status: "Completed",
     startDate: "2022-03-10",
     endDate: "2023-05-20",
     budget: 4200000,
-    location: "Zona Industrial Este, Ciudad",
+    location: "East Industrial Zone, City",
     client: "Tecnova Industries",
-    progress: 100,
-  },
-  {
+    progress: 100
+},
+{
     id: "4",
-    name: "Puente Río Norte",
-    description: "Puente vehicular de 120 metros sobre el río Norte",
+    name: "North River Bridge",
+    description: "120-meter vehicular bridge over the North River",
     squareMeters: 2200,
-    type: "Infraestructura",
-    status: "En progreso",
+    type: "Infraestructure",
+    status: "In progress",
     startDate: "2023-01-15",
     budget: 3800000,
-    location: "Río Norte, Ciudad",
-    client: "Ministerio de Obras Públicas",
-    progress: 45,
-  },
-  {
+    location: "North River, City",
+    client: "Ministry of Public Works",
+    progress: 45
+},
+{
     id: "5",
-    name: "Residencial Los Pinos",
-    description: "Urbanización con 35 casas unifamiliares",
+    name: "Los Pinos Residential",
+    description: "Residential development with 35 single-family houses",
     squareMeters: 15000,
-    type: "Residencial",
-    status: "En progreso",
+    type: "Residential",
+    status: "In progress",
     startDate: "2023-04-05",
     budget: 6500000,
-    location: "Sector Sur, Ciudad",
-    client: "Desarrollos Inmobiliarios S.A.",
-    progress: 30,
+    location: "South Sector, City",
+    client: "Real Estate Developments S.A.",
+    progress: 30
   },
 ]
 
@@ -76,8 +76,8 @@ export function getProjectById(id: string): Project | undefined {
 
 export function getDashboardStats() {
   const totalProjects = projects.length
-  const activeProjects = projects.filter((p) => p.status === "En progreso").length
-  const completedProjects = projects.filter((p) => p.status === "Completado").length
+  const activeProjects = projects.filter((p) => p.status === "In progress").length
+  const completedProjects = projects.filter((p) => p.status === "Completed").length
   const totalBudget = projects.reduce((sum, project) => sum + project.budget, 0)
   const totalSquareMeters = projects.reduce((sum, project) => sum + project.squareMeters, 0)
 

@@ -1,4 +1,4 @@
-export type ProjectType = "Residencial" | "Comercial" | "Industrial" | "Infraestructura"
+export type ProjectType = "Residential" | "Commercial" | "Industrial" | "Infraestructure"
 
 export interface Project {
   id: string
@@ -6,7 +6,7 @@ export interface Project {
   description: string
   squareMeters: number
   type: ProjectType
-  status: "En planificación" | "En progreso" | "Completado" | "En pausa"
+  status: "In planning" | "In progress" | "Completed" | "Paused"
   startDate: string
   endDate?: string
   budget: number

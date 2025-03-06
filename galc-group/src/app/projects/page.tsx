@@ -15,15 +15,15 @@ export default function ProjectsPage() {
           <Link href="/dashboard">
             <Button variant="outline" size="icon" className="h-10 w-10">
               <ArrowLeft className="h-4 w-4" />
-              <span className="sr-only">Volver al Dashboard</span>
+              <span className="sr-only">Back to Dashboard</span>
             </Button>
           </Link>
-          <h1 className="text-3xl font-bold tracking-tight">Proyectos</h1>
+          <h1 className="text-3xl font-bold tracking-tight">Projects</h1>
         </div>
         <Link href="/projects/new">
           <Button>
             <PlusCircle className="mr-2 h-4 w-4" />
-            Nuevo Proyecto
+            New Project
           </Button>
         </Link>
       </div>
@@ -48,7 +48,7 @@ export default function ProjectsPage() {
                 <div className="space-y-4">
                   <div className="grid grid-cols-2 gap-4 text-sm">
                     <div>
-                      <div className="text-muted-foreground">Presupuesto</div>
+                      <div className="text-muted-foreground">Budget</div>
                       <div className="font-medium">{formatCurrency(project.budget)}</div>
                     </div>
                     <div>
@@ -56,17 +56,17 @@ export default function ProjectsPage() {
                       <div className="font-medium">{project.squareMeters.toLocaleString()} m²</div>
                     </div>
                     <div>
-                      <div className="text-muted-foreground">Inicio</div>
+                      <div className="text-muted-foreground">Start Date</div>
                       <div className="font-medium">{formatDate(project.startDate)}</div>
                     </div>
                     <div>
-                      <div className="text-muted-foreground">Cliente</div>
+                      <div className="text-muted-foreground">Client</div>
                       <div className="font-medium truncate">{project.client}</div>
                     </div>
                   </div>
                   <div>
                     <div className="flex items-center justify-between text-sm mb-1">
-                      <span className="text-muted-foreground">Progreso</span>
+                      <span className="text-muted-foreground">Progress</span>
                       <span className="font-medium">{project.progress}%</span>
                     </div>
                     <Progress value={project.progress} className="h-2" />

@@ -35,35 +35,35 @@ export default function NewProjectPage() {
         <Link href="/projects">
           <Button variant="outline" size="icon" className="h-10 w-10">
             <ArrowLeft className="h-4 w-4" />
-            <span className="sr-only">Volver</span>
+            <span className="sr-only">Back</span>
           </Button>
         </Link>
-        <h1 className="text-2xl font-bold tracking-tight">Nuevo Proyecto</h1>
+        <h1 className="text-2xl font-bold tracking-tight">New Project</h1>
       </div>
 
       <Card>
         <CardHeader>
-          <CardTitle>Información del Proyecto</CardTitle>
-          <CardDescription>Ingresa los detalles básicos para crear un nuevo proyecto</CardDescription>
+          <CardTitle>Project Info</CardTitle>
+          <CardDescription>Enter the basic details to create a new project</CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid gap-6 sm:grid-cols-2">
-              <FormField id="name" label="Nombre del Proyecto" placeholder="Ej: Edificio Residencial Aurora" required />
+              <FormField id="name" label="Project Name" placeholder="Ej: Aurora Residential Building" required />
 
               <FormField
                 id="type"
-                label="Tipo de Proyecto"
+                label="Project Type"
                 component={
                   <Select required>
                     <SelectTrigger id="type">
-                      <SelectValue placeholder="Selecciona un tipo" />
+                      <SelectValue placeholder="Select a type" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="Residencial">Residencial</SelectItem>
-                      <SelectItem value="Comercial">Comercial</SelectItem>
+                      <SelectItem value="Residencial">Residential</SelectItem>
+                      <SelectItem value="Comercial">Commercial</SelectItem>
                       <SelectItem value="Industrial">Industrial</SelectItem>
-                      <SelectItem value="Infraestructura">Infraestructura</SelectItem>
+                      <SelectItem value="Infraestructura">Infraestructure</SelectItem>
                     </SelectContent>
                   </Select>
                 }
@@ -71,7 +71,7 @@ export default function NewProjectPage() {
 
               <FormField
                 id="squareMeters"
-                label="Metros Cuadrados"
+                label="Square Meters"
                 type="number"
                 placeholder="Ej: 3500"
                 min="1"
@@ -80,52 +80,52 @@ export default function NewProjectPage() {
 
               <FormField
                 id="budget"
-                label="Presupuesto (USD)"
+                label="Budget (USD)"
                 type="number"
                 placeholder="Ej: 2500000"
                 min="1"
                 required
               />
 
-              <FormField id="startDate" label="Fecha de Inicio" type="date" required />
+              <FormField id="startDate" label="Start Date" type="date" required />
 
               <FormField
                 id="status"
-                label="Estado"
+                label="Status"
                 component={
                   <Select required>
                     <SelectTrigger id="status">
-                      <SelectValue placeholder="Selecciona un estado" />
+                      <SelectValue placeholder="Select a status" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="En planificación">En planificación</SelectItem>
-                      <SelectItem value="En progreso">En progreso</SelectItem>
-                      <SelectItem value="En pausa">En pausa</SelectItem>
-                      <SelectItem value="Completado">Completado</SelectItem>
+                      <SelectItem value="En planificación">In planning</SelectItem>
+                      <SelectItem value="En progreso">In progress</SelectItem>
+                      <SelectItem value="En pausa">Paused</SelectItem>
+                      <SelectItem value="Completado">Completed</SelectItem>
                     </SelectContent>
                   </Select>
                 }
               />
 
-              <FormField id="client" label="Cliente" placeholder="Ej: Inversiones Aurora S.A." required />
+              <FormField id="client" label="Client" placeholder="Ej: Aurora Investments S.A." required />
 
-              <FormField id="location" label="Ubicación" placeholder="Ej: Av. Principal 123, Ciudad" required />
+              <FormField id="location" label="Location" placeholder="Ej: 123 Main Avenue, City" required />
             </div>
 
             <FormField
               id="description"
-              label="Descripción"
-              component={<Textarea placeholder="Describe el proyecto..." className="min-h-[120px]" required />}
+              label="Description"
+              component={<Textarea placeholder="Describe the project..." className="min-h-[120px]" required />}
             />
 
             <div className="flex justify-end gap-4">
               <Link href="/projects">
                 <Button variant="outline" type="button">
-                  Cancelar
+                  Cancel
                 </Button>
               </Link>
               <Button type="submit" disabled={isSubmitting}>
-                {isSubmitting ? "Guardando..." : "Crear Proyecto"}
+                {isSubmitting ? "Saving..." : "Create Proyect"}
               </Button>
             </div>
           </form>

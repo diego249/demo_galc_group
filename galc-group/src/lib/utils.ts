@@ -23,13 +23,13 @@ export function formatDate(dateString: string): string {
 
 export function getStatusColor(status: string): string {
   switch (status) {
-    case "En progreso":
+    case "In progress":
       return "bg-blue-500"
-    case "Completado":
+    case "Completed":
       return "bg-green-500"
-    case "En planificación":
+    case "In planning":
       return "bg-amber-500"
-    case "En pausa":
+    case "Paused":
       return "bg-gray-500"
     default:
       return "bg-gray-300"

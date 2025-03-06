@@ -20,7 +20,7 @@ export default function DocumentsPage({ params }: { params: Promise<{ id: string
   const documents = [
     {
       id: "1",
-      name: "Planos arquitectónicos",
+      name: "Architectural drawings",
       type: "PDF",
       url: "#",
       uploadDate: "2023-06-20",
@@ -28,7 +28,7 @@ export default function DocumentsPage({ params }: { params: Promise<{ id: string
     },
     {
       id: "2",
-      name: "Presupuesto detallado",
+      name: "Detailed budget",
       type: "XLSX",
       url: "#",
       uploadDate: "2023-06-22",
@@ -36,7 +36,7 @@ export default function DocumentsPage({ params }: { params: Promise<{ id: string
     },
     {
       id: "3",
-      name: "Contrato con cliente",
+      name: "Contract with customer",
       type: "PDF",
       url: "#",
       uploadDate: "2023-06-15",
@@ -44,7 +44,7 @@ export default function DocumentsPage({ params }: { params: Promise<{ id: string
     },
     {
       id: "4",
-      name: "Permisos municipales",
+      name: "Government permits",
       type: "PDF",
       url: "#",
       uploadDate: "2023-07-05",
@@ -65,23 +65,23 @@ export default function DocumentsPage({ params }: { params: Promise<{ id: string
           <Link href={`/projects/${id}`}>
             <Button variant="outline" size="icon" className="h-10 w-10">
               <ArrowLeft className="h-4 w-4" />
-              <span className="sr-only">Volver</span>
+              <span className="sr-only">Back</span>
             </Button>
           </Link>
           <div>
-            <h1 className="text-2xl font-bold tracking-tight">Documentos</h1>
+            <h1 className="text-2xl font-bold tracking-tight">Documents</h1>
             <p className="text-muted-foreground mt-1">{project.name}</p>
           </div>
         </div>
         <Button>
           <Upload className="mr-2 h-4 w-4" />
-          Subir Documento
+          Upload Document
         </Button>
       </div>
 
       <Card>
         <CardHeader>
-          <CardTitle>Documentos del Proyecto</CardTitle>
+          <CardTitle>Project Documents</CardTitle>
           <CardDescription>Archivos y documentación relacionada con el proyecto</CardDescription>
         </CardHeader>
         <CardContent>
@@ -89,10 +89,10 @@ export default function DocumentsPage({ params }: { params: Promise<{ id: string
             <table className="w-full">
               <thead>
                 <tr className="text-left text-sm font-medium text-muted-foreground">
-                  <th className="p-4">Nombre</th>
-                  <th className="p-4">Tipo</th>
-                  <th className="p-4">Tamaño</th>
-                  <th className="p-4">Fecha</th>
+                  <th className="p-4">Name</th>
+                  <th className="p-4">Type</th>
+                  <th className="p-4">Size</th>
+                  <th className="p-4">Date</th>
                   <th className="p-4 sr-only">Acciones</th>
                 </tr>
               </thead>
@@ -115,13 +115,13 @@ export default function DocumentsPage({ params }: { params: Promise<{ id: string
                         <DropdownMenuTrigger asChild>
                           <Button variant="ghost" size="icon">
                             <MoreVertical className="h-4 w-4" />
-                            <span className="sr-only">Abrir menú</span>
+                            <span className="sr-only">Open Menu</span>
                           </Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="end">
-                          <DropdownMenuItem>Descargar</DropdownMenuItem>
-                          <DropdownMenuItem>Renombrar</DropdownMenuItem>
-                          <DropdownMenuItem>Eliminar</DropdownMenuItem>
+                          <DropdownMenuItem>Download</DropdownMenuItem>
+                          <DropdownMenuItem>Rename</DropdownMenuItem>
+                          <DropdownMenuItem>Delete</DropdownMenuItem>
                         </DropdownMenuContent>
                       </DropdownMenu>
                     </td>

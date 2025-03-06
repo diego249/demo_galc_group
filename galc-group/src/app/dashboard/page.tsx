@@ -20,11 +20,11 @@ export default function DashboardPage() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">Dashboard</h1>
-          <p className="text-muted-foreground mt-1">Resumen de proyectos y estadísticas</p>
+          <p className="text-muted-foreground mt-1">Projects and Stats</p>
         </div>
         <Link href="/projects">
           <Button className="w-full sm:w-auto transition-all hover:shadow-md">
-            Proyectos
+            Projects
           </Button>
         </Link>
       </div>
@@ -32,9 +32,9 @@ export default function DashboardPage() {
       <Tabs defaultValue="overview" className="w-full">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6">
           <TabsList className="mb-4 sm:mb-0">
-            <TabsTrigger value="overview">Resumen</TabsTrigger>
-            <TabsTrigger value="projects">Proyectos</TabsTrigger>
-            <TabsTrigger value="analytics">Análisis</TabsTrigger>
+            <TabsTrigger value="overview">Overview</TabsTrigger>
+            <TabsTrigger value="projects">Projects</TabsTrigger>
+            <TabsTrigger value="analytics">Analytics</TabsTrigger>
           </TabsList>
 
           <div className="flex items-center">
@@ -55,7 +55,7 @@ export default function DashboardPage() {
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             <Card className="overflow-hidden border border-border/40 shadow-sm hover:shadow-md transition-all">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 bg-background/50">
-                <CardTitle className="text-sm font-medium">Total Proyectos</CardTitle>
+                <CardTitle className="text-sm font-medium">Total projects</CardTitle>
                 <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
                   <Building2 className="h-4 w-4 text-primary" />
                 </div>
@@ -63,14 +63,14 @@ export default function DashboardPage() {
               <CardContent className="pt-4">
                 <div className="text-2xl font-bold">{stats.totalProjects}</div>
                 <p className="text-xs text-muted-foreground mt-1">
-                  {formatCurrency(stats.totalBudget)} en presupuesto total
+                  {formatCurrency(stats.totalBudget)} in total budget
                 </p>
               </CardContent>
             </Card>
 
             <Card className="overflow-hidden border border-border/40 shadow-sm hover:shadow-md transition-all">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 bg-background/50">
-                <CardTitle className="text-sm font-medium">Proyectos Activos</CardTitle>
+                <CardTitle className="text-sm font-medium">Active projects</CardTitle>
                 <div className="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center dark:bg-blue-900/30">
                   <Clock className="h-4 w-4 text-blue-600 dark:text-blue-400" />
                 </div>
@@ -88,7 +88,7 @@ export default function DashboardPage() {
 
             <Card className="overflow-hidden border border-border/40 shadow-sm hover:shadow-md transition-all">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 bg-background/50">
-                <CardTitle className="text-sm font-medium">Proyectos Completados</CardTitle>
+                <CardTitle className="text-sm font-medium">Completed projects</CardTitle>
                 <div className="h-8 w-8 rounded-full bg-green-100 flex items-center justify-center dark:bg-green-900/30">
                   <CheckCircle className="h-4 w-4 text-green-600 dark:text-green-400" />
                 </div>
@@ -106,7 +106,7 @@ export default function DashboardPage() {
 
             <Card className="overflow-hidden border border-border/40 shadow-sm hover:shadow-md transition-all">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 bg-background/50">
-                <CardTitle className="text-sm font-medium">Metros Cuadrados</CardTitle>
+                <CardTitle className="text-sm font-medium">Square meters</CardTitle>
                 <div className="h-8 w-8 rounded-full bg-amber-100 flex items-center justify-center dark:bg-amber-900/30">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -124,7 +124,7 @@ export default function DashboardPage() {
               </CardHeader>
               <CardContent className="pt-4">
                 <div className="text-2xl font-bold">{stats.totalSquareMeters.toLocaleString()}</div>
-                <p className="text-xs text-muted-foreground mt-1">En todos los proyectos</p>
+                <p className="text-xs text-muted-foreground mt-1">Among all the projects</p>
               </CardContent>
             </Card>
           </div>
@@ -132,8 +132,8 @@ export default function DashboardPage() {
           <div className="grid gap-6 md:grid-cols-7">
             <Card className="md:col-span-4 border border-border/40 shadow-sm">
               <CardHeader className="pb-2">
-                <CardTitle className="text-lg">Distribución por Tipo</CardTitle>
-                <CardDescription>Clasificación de proyectos según su categoría</CardDescription>
+                <CardTitle className="text-lg">Distribution by Type</CardTitle>
+                <CardDescription>Classification of projects by category</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-5 mt-2">
@@ -162,18 +162,18 @@ export default function DashboardPage() {
 
             <Card className="md:col-span-3 border border-border/40 shadow-sm">
               <CardHeader className="pb-2">
-                <CardTitle className="text-lg">Proyectos Recientes</CardTitle>
-                <CardDescription>Últimos proyectos iniciados</CardDescription>
+                <CardTitle className="text-lg">Recent Projects</CardTitle>
+                <CardDescription>Latest projects started</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4 mt-2">
                   {stats.recentProjects.map((project) => {
                     const statusColor =
-                      project.status === "En progreso"
+                      project.status === "In progress"
                         ? "bg-blue-500"
-                        : project.status === "Completado"
+                        : project.status === "Completed"
                           ? "bg-green-500"
-                          : project.status === "En planificación"
+                          : project.status === "In planning"
                             ? "bg-amber-500"
                             : "bg-gray-500"
 
@@ -197,7 +197,7 @@ export default function DashboardPage() {
                             className="h-8 w-8 opacity-0 group-hover:opacity-100 transition-opacity"
                           >
                             <ChevronDown className="h-4 w-4" />
-                            <span className="sr-only">Ver detalles</span>
+                            <span className="sr-only">Details</span>
                           </Button>
                         </div>
                       </div>
@@ -212,12 +212,12 @@ export default function DashboardPage() {
         <TabsContent value="projects">
           <Card className="border border-border/40">
             <CardHeader>
-              <CardTitle>Todos los Proyectos</CardTitle>
-              <CardDescription>Gestiona y visualiza todos tus proyectos</CardDescription>
+              <CardTitle>All Projects</CardTitle>
+              <CardDescription>Manage and visualize all your projects</CardDescription>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-muted-foreground">
-                Selecciona la pestaña Resumen para ver las estadísticas de proyectos.
+                Select the Summary tab to view project statistics.
               </p>
             </CardContent>
           </Card>
@@ -226,12 +226,12 @@ export default function DashboardPage() {
         <TabsContent value="analytics">
           <Card className="border border-border/40">
             <CardHeader>
-              <CardTitle>Análisis Detallado</CardTitle>
-              <CardDescription>Métricas y tendencias de tus proyectos</CardDescription>
+              <CardTitle>Detailed Analysis</CardTitle>
+              <CardDescription>Metrics and trends of your projects</CardDescription>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-muted-foreground">
-                Selecciona la pestaña Resumen para ver las estadísticas de proyectos.
+                Select the Summary tab to view project statistics.
               </p>
             </CardContent>
           </Card>
